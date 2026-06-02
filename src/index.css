@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Lato', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: #FFFDF5;
+    color: #1a1a1a;
+    font-family: 'Lato', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  .btn-maroon {
+    @apply bg-maroon text-white px-6 py-3 rounded-full font-lato font-bold transition-all duration-300
+    hover:bg-maroon-600 hover:shadow-warm-lg hover:scale-105 active:scale-95;
+  }
+
+  .btn-gold-outline {
+    @apply border-2 border-gold text-gold px-6 py-3 rounded-full font-lato font-bold transition-all duration-300
+    hover:bg-gold hover:text-white hover:shadow-gold hover:scale-105 active:scale-95;
+  }
+
+  .section-heading {
+    @apply font-playfair text-2xl sm:text-3xl md:text-4xl font-bold text-maroon text-center mb-2 sm:mb-3;
+  }
+
+  .section-subtext {
+    @apply font-lato text-sm sm:text-base md:text-lg text-brown text-center mb-8 sm:mb-10 opacity-80;
+  }
+
+  .card-base {
+    @apply bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300;
+  }
+}
+
+/* Scroll Progress Bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #8B1A1A, #F0A500);
+  z-index: 9999;
+  transition: width 0.1s ease;
+}
+
+/* Ken Burns Effect */
+.ken-burns {
+  animation: kenBurns 20s ease-in-out infinite alternate;
+}
+
+@keyframes kenBurns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+/* WhatsApp pulse */
+@keyframes whatsappPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  50% { box-shadow: 0 0 0 14px rgba(37, 211, 102, ); }
+}
+
+.whatsapp-pulse {
+  animation: whatsappPulse 3s ease-in-out infinite;
+}
+
+/* Card hover image zoom */
+.card-img-zoom {
+  transition: transform 0.5s ease;
+}
+.group:hover .card-img-zoom {
+  transform: scale(1.06);
+}
+
+/* Underline animation for nav links */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #F0A500;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FFFDF5;
+}
+::-webkit-scrollbar-thumb {
+  background: #8B1A1A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7A1616;
+}
+
+/* Tab transition */
+.tab-content {
+  animation: fadeUp 0.4s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Pure veg symbol */
+.veg-symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #2E7D32;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.veg-symbol::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2E7D32;
+}
